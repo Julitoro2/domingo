@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Service Worker Demo</title>
+</head>
+<body>
+  <h1>Service Worker Demo</h1>
+  
+  <!-- Contenido de la página -->
+  <p>Esta es una página de demostración que utiliza un Service Worker.</p>
+  
+  <script>
+    // Registro del Service Worker
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function() {
+        navigator.serviceWorker.register('/service-worker.js')
+          .then(function(registration) {
+            console.log('Service Worker registrado correctamente');
+          })
+          .catch(function(error) {
+            console.error('Error al registrar el Service Worker:', error);
+          });
+      });
+    }
+  </script>
+</body>
+</html>
